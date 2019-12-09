@@ -1,0 +1,35 @@
+ul.allTasksLists{
+    margin: 0;
+    padding: 0;
+}
+.allTasksLists .container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+}
+.tasksListBlock{
+    align-items: center;
+    margin: 30px 0;
+}
+span.tasksListsTitle {
+    padding-left: 20px;
+    color: #6c6a6a;
+    display: block;
+}
+.cursor-pointer{
+    cursor:pointer
+}
+.custom-control-input:checked~.custom-checkbox-class::before {
+    background-color: #35D388;
+    border-color: #35D388;
+}
+label.custom-control-label.cursor-pointer.custom-checkbox-class:before {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+.custom-checkbox-class.custom-control-label::after {
+    top: 6px;
+    left: -22px;
+    background-size: 65%;
+}
