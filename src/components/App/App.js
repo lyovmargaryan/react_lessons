@@ -5,6 +5,7 @@ import List from '../List';
 import AddItem from '../AddItem';
 
 import './App.css';
+import Hello from '../Hello';
 
 const data = [
   {
@@ -19,14 +20,25 @@ const data = [
   }
 ];
 
+const addNewItem = (title) => {
+  const obj = {
+    id: data[data.length - 1].id + 1,
+    isDone: false,
+    title
+  };
+  console.log(obj);
+  data.push(obj);
+};
+
 const App = () => {
 //  <React.Fragment> kam datark html tag  havai html tag chgrenq
   return (
     <div className="container todoList">
       <h1 className="todoListTitle">Lyov TodoList</h1>
       <Filter />
-      <List />
-      <AddItem />
+      <List todoData={data}/>
+      <AddItem  addFunc={addNewItem}/>
+      <Hello test="helo"/>
     </div>
   )
 };

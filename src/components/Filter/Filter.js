@@ -1,9 +1,7 @@
 import React from 'react';
-
 import './Filter.css';
 
 const Filter = () => {
-
   return (
     <div className="filter-block">
       <div className="input-group">
@@ -13,12 +11,10 @@ const Filter = () => {
               <i className="fa fa-search"> </i>
             </button>
           </div>
-        <button className="btn btn-info">Active</button>
+        <button className="btn btn-primary">Active</button>
         <button className="btn btn-warning">Passive</button>
       </div>
-
     </div>
-
   )
 };
 

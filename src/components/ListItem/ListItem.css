@@ -7,10 +7,7 @@ ul.allTasksLists{
     position: relative;
     cursor: pointer;
 }
-.tasksListBlock{
-    align-items: center;
-    margin: 30px 0;
-}
+
 span.tasksListsTitle {
     padding-left: 20px;
     color: #6c6a6a;
