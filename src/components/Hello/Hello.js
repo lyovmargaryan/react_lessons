@@ -1,12 +1,7 @@
 import React from 'react';
 
 class Hello extends React.Component {
-  // constructor(){
-  //   super();
-  //   this.state = {
-  //     age: 25
-  //   }
-  // }
+
   state = {
     age:25,
     text: 'barev'
@@ -35,13 +30,13 @@ class Hello extends React.Component {
 
     const { age } = this.state;
     const { text } = this.state;
-
-    //console.log(this.props.test);
+    
     return (
       <div>
         <h1>{age}</h1>
         <h1>{text}</h1>
         <button className="btn btn-warning" onClick={this.getTitle}>get title</button>
+        {/*<button className="btn btn-warning" onClick={(e) => this.getTitle(e)}>get title</button>*/}
         <button className="btn btn-primary" onClick={this.PlusAge}>Plus age</button>
       </div>
     )
