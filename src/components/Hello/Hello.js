@@ -13,7 +13,7 @@ class Hello extends React.Component {
     //age:this.props.test("test")
   };
 
-  getTitle(){
+  getTitle = () => {
     this.setState((oldState) => {
       const {test} = this.props;
       return {
@@ -21,15 +21,15 @@ class Hello extends React.Component {
 
       }
     });
-  }
-  PlusAge(){
+  };
+  PlusAge = () => {
     this.setState((oldState) => {
       return {
         age:oldState.age + 1
         //text:oldState.text - 1
       }
     });
-  }
+  };
 
   render() {
 
@@ -41,8 +41,8 @@ class Hello extends React.Component {
       <div>
         <h1>{age}</h1>
         <h1>{text}</h1>
-        <button className="btn btn-warning" onClick={this.getTitle.bind(this)}>get title</button>
-        <button className="btn btn-primary" onClick={this.PlusAge.bind(this)}>Plus age</button>
+        <button className="btn btn-warning" onClick={this.getTitle}>get title</button>
+        <button className="btn btn-primary" onClick={this.PlusAge}>Plus age</button>
       </div>
     )
   }
