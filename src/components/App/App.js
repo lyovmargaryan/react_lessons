@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Filter from '../Filter';
 import List from '../List';
 import AddItem from '../AddItem';
@@ -26,8 +25,9 @@ const addNewItem = (title) => {
     isDone: false,
     title
   };
-  console.log(obj);
+
   data.push(obj);
+    return title
 };
 
 const App = () => {
@@ -38,7 +38,8 @@ const App = () => {
       <Filter />
       <List todoData={data}/>
       <AddItem  addFunc={addNewItem}/>
-      <Hello test="helo"/>
+      {/*<Hello test="helo"/>*/}
+        <Hello test={addNewItem}/>
     </div>
   )
 };
