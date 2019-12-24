@@ -1,15 +1,5 @@
-.container.todoList {
-    width: 600px;
-    background-color: white;
-    margin: auto;
-    border-radius: 20px;
-    padding: 40px;
-}
-#root{
-    background-color: #35D388;
-    width: 100%;
-    padding: 30px 0;
-}
-.todoListTitle{
-    margin-bottom: 20px;
+.container {
+  max-width: 800px;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }

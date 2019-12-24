@@ -1,18 +1,42 @@
-import React from 'react';
+import React, { Component } from 'react';
+
 import './AddItem.css';
 
-const AddItem = ({ addFunc }) => {
+// const AddItem = ( {onAddItem} ) => {
+export default class AddItem extends Component{
 
-  addFunc('Hellooo');
+  state = {
+    text: ''
+  };
 
-  //state
+  onInputChange = ( {target} ) => {
+    this.setState({
+      text: target.value
+    })
+  };
+  onAddClick = () => {
+    const {onAddItem} = this.props;
+    this.setState(({text}) => {
+      onAddItem(text);
+      return {
+        text: ''
+      }
+    })
+  };
+
+  render(){
 
   return (
-    <div className="addItem-block d-flex justify-content-between">
-      <textarea className="w-75"> </textarea>
-      <button className="btn btn-success">Add</button>
+    <div className="row add-item">
+      <div className="form-group col-md-9">
+        <input className="form-control" placeholder="Add new data" value={this.state.text} onChange={this.onInputChange}/>
+      </div>
+      <div className="form-group col-md-3">
+        <button className="btn btn-info" onClick={this.onAddClick}>Add Item</button>
+      </div>
     </div>
-  )
+  );
+  }
 };
 
-export default AddItem;
+// export default AddItem;

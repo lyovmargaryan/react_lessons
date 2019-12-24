@@ -1,32 +1,22 @@
-ul.allTasksLists{
-    margin: 0;
-    padding: 0;
-}
-.allTasksLists .container {
-    display: block;
-    position: relative;
-    cursor: pointer;
+.todo-list-buttons .btn {
+  margin: 0 5px;
+  width: 45px;
+  text-align: center;
 }
 
-span.tasksListsTitle {
-    padding-left: 20px;
-    color: #6c6a6a;
-    display: block;
+.todo-list-title {
+  font-size: 18px;
+  line-height: 36px;
 }
-.cursor-pointer{
-    cursor:pointer
+.todo-list-title.important {
+  color: tomato;
+  font-weight: bold;
 }
-.custom-control-input:checked~.custom-checkbox-class::before {
-    background-color: #35D388;
-    border-color: #35D388;
+.todo-list-title.done {
+  color: #646464;
+  font-weight: normal;
+  text-decoration: line-through;
 }
-label.custom-control-label.cursor-pointer.custom-checkbox-class:before {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-}
-.custom-checkbox-class.custom-control-label::after {
-    top: 6px;
-    left: -22px;
-    background-size: 65%;
+.todo-list-title:hover{
+  cursor: pointer;
 }

@@ -1,28 +1,34 @@
-import React from 'react';
+import React, { Component } from 'react';
+
 import './ListItem.css';
 
-let idCounterForCheckbox = 0;
-const ListItem = ({ list }) => {
-  idCounterForCheckbox++;
+class ListItem extends Component {
 
-  const colorClass = list.isDone ? 'text-success' : 'text-warning';
-  // const color = list.isDone ? 'green' : 'orange';
-  // const styleData = { color };
+  render() {
+    const { label, deleteList, onlabelClick, onImportant } = this.props;
 
-  return (
-      <li className="text-center mt-3 mb-3 d-flex justify-content-between align-items-center">
-        <div className="custom-control custom-checkbox">
-          <input type="checkbox" className="custom-control-input" name="customCheck" id={"customCheck" + idCounterForCheckbox} />
-            <label className={"custom-control-label  cursor-pointer custom-checkbox-class " + colorClass} htmlFor={"customCheck" + idCounterForCheckbox}>
-              { list.title }</label>
-          {/*label style={styleData}*/}
-        </div>
-        <div className="btn-group" role="group">
-          <button className="btn btn-danger"><i className="fa fa-remove"> </i></button>
-          <button className="btn btn-info"><i className="fa fa-check"> </i></button>
-        </div>
+    let listClassName = 'pull-left todo-list-title';
+
+    listClassName += label.important ? ' important': '';
+    listClassName += label.isDone ? ' done': '';
+
+    return (
+      <li className="list-group-item">
+        <span className={ listClassName } onClick={() => onlabelClick(label.id) }>
+          { label.title }
+        </span>
+
+        <span className="pull-right todo-list-buttons">
+          <button className="btn btn-danger" onClick={() => deleteList(label.id)}>
+            <i className="fa fa-trash"></i>
+          </button>
+          <button className="btn btn-success" onClick={() => onImportant(label.id) }>
+            <i className="fa fa-info"></i>
+          </button>
+        </span>
       </li>
-  );
+    );
+  }
 };
 
 export default ListItem;
