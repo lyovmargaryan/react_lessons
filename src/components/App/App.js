@@ -27,37 +27,36 @@ export default class App extends Component{
     }
   }
 
-  getObjData() {
-
+  getObjData(id,data) {
+    this.setState(({ todoData }) => {
+    const idx = todoData.findIndex((obj) => obj.id === id);
+      let obj = {};
+      switch (data) {
+      case 'isDone':
+        obj = {
+          ...todoData[idx],
+          isDone: !todoData[idx].isDone,
+        };
+        break;
+      case 'important' :
+        obj = {
+          ...todoData[idx],
+          important: !todoData[idx].important
+        };
+        break;
+      }
+    return {
+      todoData: [ ...todoData.slice(0, idx), obj, ...todoData.slice(idx + 1) ]
+    }
+    });
   }
 
   onlabelClick = (id) => {
-    this.setState(({ todoData }) => {
-      const idx = todoData.findIndex((obj) => obj.id === id);
-
-      const obj = {
-        ...todoData[idx],
-        isDone: !todoData[idx].isDone
-      };
-      return {
-        todoData: [ ...todoData.slice(0, idx), obj, ...todoData.slice(idx + 1) ]
-      }
-    });
+      this.getObjData(id,'isDone');
   };
 
   onImportant = (id) => {
-    this.setState(({ todoData }) => {
-      const idx = todoData.findIndex((obj) => obj.id === id);
-
-      const obj = {
-        ...todoData[idx],
-        important: !todoData[idx].important
-      };
-      return {
-        todoData: [ ...todoData.slice(0, idx), obj, ...todoData.slice(idx + 1) ]
-      }
-
-    });
+    this.getObjData(id,'important');
   };
 
   onDeleteItem = (id) =>{
